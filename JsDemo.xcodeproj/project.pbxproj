@@ -16,6 +16,10 @@
 		2B72BE31242C81B600EDA2F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE30242C81B600EDA2F8 /* main.m */; };
 		2B72BE3B242C81B600EDA2F8 /* JsDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE3A242C81B600EDA2F8 /* JsDemoTests.m */; };
 		2B72BE46242C81B600EDA2F8 /* JsDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE45242C81B600EDA2F8 /* JsDemoUITests.m */; };
+		2B72BE58242C858000EDA2F8 /* WebContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE57242C858000EDA2F8 /* WebContainer.m */; };
+		2B72BE63242CD5FB00EDA2F8 /* WKWebContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE62242CD5FB00EDA2F8 /* WKWebContainer.m */; };
+		2B72BE66242CDE6500EDA2F8 /* index1.html in Resources */ = {isa = PBXBuildFile; fileRef = 2B72BE64242CDE6500EDA2F8 /* index1.html */; };
+		2B72BE67242CDE6500EDA2F8 /* index2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2B72BE65242CDE6500EDA2F8 /* index2.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,13 @@
 		2B72BE41242C81B600EDA2F8 /* JsDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B72BE45242C81B600EDA2F8 /* JsDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsDemoUITests.m; sourceTree = "<group>"; };
 		2B72BE47242C81B600EDA2F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B72BE56242C858000EDA2F8 /* WebContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebContainer.h; sourceTree = "<group>"; };
+		2B72BE57242C858000EDA2F8 /* WebContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebContainer.m; sourceTree = "<group>"; };
+		2B72BE5E242C8EDB00EDA2F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2B72BE61242CD5FB00EDA2F8 /* WKWebContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebContainer.h; sourceTree = "<group>"; };
+		2B72BE62242CD5FB00EDA2F8 /* WKWebContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebContainer.m; sourceTree = "<group>"; };
+		2B72BE64242CDE6500EDA2F8 /* index1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index1.html; sourceTree = "<group>"; };
+		2B72BE65242CDE6500EDA2F8 /* index2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index2.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +115,14 @@
 		2B72BE1D242C81B500EDA2F8 /* JsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2B72BE5E242C8EDB00EDA2F8 /* PrefixHeader.pch */,
 				2B72BE1E242C81B500EDA2F8 /* AppDelegate.h */,
 				2B72BE1F242C81B500EDA2F8 /* AppDelegate.m */,
 				2B72BE21242C81B500EDA2F8 /* SceneDelegate.h */,
 				2B72BE22242C81B500EDA2F8 /* SceneDelegate.m */,
 				2B72BE24242C81B500EDA2F8 /* ViewController.h */,
 				2B72BE25242C81B500EDA2F8 /* ViewController.m */,
+				2B72BE59242C859000EDA2F8 /* web */,
 				2B72BE27242C81B500EDA2F8 /* Main.storyboard */,
 				2B72BE2A242C81B600EDA2F8 /* Assets.xcassets */,
 				2B72BE2C242C81B600EDA2F8 /* LaunchScreen.storyboard */,
@@ -135,6 +148,27 @@
 				2B72BE47242C81B600EDA2F8 /* Info.plist */,
 			);
 			path = JsDemoUITests;
+			sourceTree = "<group>";
+		};
+		2B72BE59242C859000EDA2F8 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				2B72BE56242C858000EDA2F8 /* WebContainer.h */,
+				2B72BE57242C858000EDA2F8 /* WebContainer.m */,
+				2B72BE61242CD5FB00EDA2F8 /* WKWebContainer.h */,
+				2B72BE62242CD5FB00EDA2F8 /* WKWebContainer.m */,
+				2B72BE5A242C85A200EDA2F8 /* dist */,
+			);
+			path = web;
+			sourceTree = "<group>";
+		};
+		2B72BE5A242C85A200EDA2F8 /* dist */ = {
+			isa = PBXGroup;
+			children = (
+				2B72BE64242CDE6500EDA2F8 /* index1.html */,
+				2B72BE65242CDE6500EDA2F8 /* index2.html */,
+			);
+			path = dist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +277,8 @@
 				2B72BE2E242C81B600EDA2F8 /* LaunchScreen.storyboard in Resources */,
 				2B72BE2B242C81B600EDA2F8 /* Assets.xcassets in Resources */,
 				2B72BE29242C81B500EDA2F8 /* Main.storyboard in Resources */,
+				2B72BE66242CDE6500EDA2F8 /* index1.html in Resources */,
+				2B72BE67242CDE6500EDA2F8 /* index2.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B72BE26242C81B500EDA2F8 /* ViewController.m in Sources */,
+				2B72BE58242C858000EDA2F8 /* WebContainer.m in Sources */,
 				2B72BE20242C81B500EDA2F8 /* AppDelegate.m in Sources */,
 				2B72BE31242C81B600EDA2F8 /* main.m in Sources */,
+				2B72BE63242CD5FB00EDA2F8 /* WKWebContainer.m in Sources */,
 				2B72BE23242C81B500EDA2F8 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +403,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -421,6 +461,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -440,14 +482,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = JsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wangxu.JsDemo.JsDemo;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangxu.JsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -456,14 +501,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = JsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wangxu.JsDemo.JsDemo;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangxu.JsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
