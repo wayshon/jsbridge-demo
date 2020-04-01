@@ -31,13 +31,30 @@
     //将obj添加到context中
     self.context[@"OCObj"] = self;
     
-    [self demoWithoutWebview];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////          [self.context evaluateScript:@"document.write('hehehe')"];
+//        [self loadJavaScript];
+//    });
+    
+//    [self loadJavaScript];
 }
 
-- (void)demoWithoutWebview {
-    JSContext *jsContext = [[JSContext alloc] init];
-    JSValue *sum = [jsContext evaluateScript:@"function t() {return 666}; t();"];
-    NSLog(@"%@", sum.toNumber);
+- (void)loadJavaScript {
+    dispatch_queue_t queue = dispatch_queue_create("js",NULL);
+    dispatch_async(queue, ^{
+        NSString *jsPath = [[NSBundle mainBundle] pathForResource:@"index.js" ofType:nil];
+        NSString *jsString = [[NSString alloc]initWithContentsOfFile:jsPath encoding:NSUTF8StringEncoding error:nil];
+        JSContext *jsContext = [[JSContext alloc] init];
+        jsContext[@"OCObj"] = self;
+        [jsContext evaluateScript:jsString];
+        
+//        [jsContext[@"init"] callWithArguments:@[^(JSValue *value) {
+//            NSString *js = [NSString stringWithFormat:@"document.write('%@')", value.toString];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.context evaluateScript:js];
+//            });
+//        }]];
+    });
 }
 
 #pragma mark - Getter
@@ -87,6 +104,16 @@
 //        vc.path = @"https://calcbit.com";
         vc.path = [[NSBundle mainBundle] pathForResource:@"index2.html" ofType:nil];
         [self.navigationController pushViewController:vc animated:YES];
+    });
+}
+
+- (void)onLoad:(id)param {
+    [self loadJavaScript];
+}
+
+- (void)showHtml:(NSString *)str {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.context evaluateScript:[NSString stringWithFormat:@"document.write('%@')", str]];
     });
 }
 

@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 JSExportAs(add, - (NSInteger)add:(NSInteger)n1 with:(NSInteger)n2);
 JSExportAs(addByCallback, - (void)add:(NSInteger)n1 with:(NSInteger)n2 callback:(JSValue *)cb);
 JSExportAs(openWKWebView, - (void)openWKWebView:(id)param);
+JSExportAs(onLoad, - (void)onLoad:(id)param);
+JSExportAs(showHtml, - (void)showHtml:(NSString *)str);
 
 @end
 
