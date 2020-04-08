@@ -104,10 +104,46 @@
     }];
 }
 
+- (void)test:(NSArray *)list {
+    for (int i = 0; i < [list count]; i++) {
+        UIView *obj = list[i];
+        NSLog(@"%@", [obj class]);
+        
+        if ([[NSString stringWithFormat:@"%@", [obj class]] isEqualToString:@"WKChildScrollView"]) {
+            NSLog(@"===========     %@  ===  %@", obj.layer, obj.backgroundColor);
+            NSArray *contents = [obj subviews];
+            for(int i = 0; i < [contents count]; i++) {
+                UIView *item = contents[i];
+                if ([[NSString stringWithFormat:@"%@", [item class]] isEqualToString:@"WKCompositingView"]) {
+                    id co = item.layer.contents;
+                    
+                    NSLog(@"===========     %@  ---  %@", item.backgroundColor, item.layer.backgroundColor );
+                }
+            }
+            
+            
+            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586279525051&di=82f790e3c72b1e0879790c1c0880fe8e&imgtype=0&src=http%3A%2F%2Fd.ifengimg.com%2Fw600%2Fp0.ifengimg.com%2Fpmop%2F2018%2F0210%2FECBF42F32865065AD4C254E04EA4FE29060B24DF_size33_w640_h590.jpeg"]];
+            UIImage *image = [UIImage imageWithData:imgData];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            [obj addSubview:imageView];
+        }
+        
+        if ([obj isKindOfClass:[UIView class]]) {
+            [self test: [obj subviews]];
+        }
+    }
+    
+}
+
 #pragma mark - WKScriptMessageHandler
 //! WKWebView收到ScriptMessage时回调此方法
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSLog(@"name:%@\n body:%@\n frameInfo:%@\n",message.name,message.body,message.frameInfo);
+    
+    NSArray *list = [_webView subviews];
+    [self test:list];
+    
+    
     NSDictionary *parameter = message.body;
     if([message.name isEqualToString:@"callOC"]){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"js call oc" message:parameter[@"msg"] preferredStyle:UIAlertControllerStyleAlert];

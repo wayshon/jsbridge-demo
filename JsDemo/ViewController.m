@@ -22,8 +22,9 @@
 }
 
 - (IBAction)goUIWebView:(id)sender {
-    WebContainer *vc = [[WebContainer alloc] init];
-    vc.path = [[NSBundle mainBundle] pathForResource:@"index1.html" ofType:nil];
+    WKWebContainer *vc = [[WKWebContainer alloc] init];
+//    WebContainer *vc = [[WebContainer alloc] init];
+    vc.path = [[NSBundle mainBundle] pathForResource:@"index2.html" ofType:nil];
 //    vc.path = @"https://calcbit.com";
     [self.navigationController pushViewController:vc animated:YES];
 }
