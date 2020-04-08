@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X8D-IZ-nTo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,10 +27,24 @@
                                     <action selector="goUIWebView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Am2-fa-z9d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWY-4n-ZFN">
+                                <rect key="frame" x="20" y="265" width="374" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Yex-Ps-RnD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="打开 WKWebview"/>
+                                <connections>
+                                    <action selector="goWkWbview:" destination="BYZ-38-t0r" eventType="touchUpInside" id="faG-D5-MCD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="yuF-z7-J43" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2bb-va-j3f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BWY-4n-ZFN" secondAttribute="trailing" constant="20" id="4ap-gY-xaK"/>
+                            <constraint firstItem="BWY-4n-ZFN" firstAttribute="top" secondItem="yuF-z7-J43" secondAttribute="bottom" constant="39" id="DI0-ZX-qPV"/>
+                            <constraint firstItem="BWY-4n-ZFN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gSg-yC-rVW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yuF-z7-J43" secondAttribute="trailing" constant="20" id="nO3-cR-Llz"/>
                             <constraint firstItem="yuF-z7-J43" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="vuv-4c-pkw"/>
                         </constraints>

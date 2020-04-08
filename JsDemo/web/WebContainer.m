@@ -39,24 +39,6 @@
 //    [self loadJavaScript];
 }
 
-- (void)loadJavaScript {
-    dispatch_queue_t queue = dispatch_queue_create("js",NULL);
-    dispatch_async(queue, ^{
-        NSString *jsPath = [[NSBundle mainBundle] pathForResource:@"index.js" ofType:nil];
-        NSString *jsString = [[NSString alloc]initWithContentsOfFile:jsPath encoding:NSUTF8StringEncoding error:nil];
-        JSContext *jsContext = [[JSContext alloc] init];
-        jsContext[@"OCObj"] = self;
-        [jsContext evaluateScript:jsString];
-        
-//        [jsContext[@"init"] callWithArguments:@[^(JSValue *value) {
-//            NSString *js = [NSString stringWithFormat:@"document.write('%@')", value.toString];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.context evaluateScript:js];
-//            });
-//        }]];
-    });
-}
-
 #pragma mark - Getter
 - (UIWebView *)webView{
     if(_webView == nil){
@@ -94,26 +76,44 @@
 
 // JSValue：表示的就是在 JSContext 中的 JS 变量 OC端的引用。毕竟是两门完全不同的语言。
 - (void)add:(NSInteger)a with:(NSInteger)b callback:(JSValue *)cb {
-    [cb callWithArguments:@[@(a + b)]];
+//    延时 2 秒
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,(int64_t)(2.0* NSEC_PER_SEC)),dispatch_get_main_queue(),^{
+        [cb callWithArguments:@[@(a + b)]];
+    });
 }
 
 - (void)openWKWebView:(id)param {
     //    在主线程更新 native UI
     dispatch_async(dispatch_get_main_queue(), ^{
         WKWebContainer *vc = [[WKWebContainer alloc] init];
+        NSString *str = [[NSBundle mainBundle] pathForResource:@"fe-file/wkweb/index.html" ofType:nil];
+        vc.path = str;
 //        vc.path = @"https://calcbit.com";
-        vc.path = [[NSBundle mainBundle] pathForResource:@"index2.html" ofType:nil];
         [self.navigationController pushViewController:vc animated:YES];
     });
 }
 
-- (void)onLoad:(id)param {
-    [self loadJavaScript];
+- (void)callThread:(id)param {
+    dispatch_queue_t queue = dispatch_queue_create("js",NULL);
+        dispatch_async(queue, ^{
+            NSString *jsPath = [[NSBundle mainBundle] pathForResource:@"fe-file/js/index.js" ofType:nil];
+            NSString *jsString = [[NSString alloc]initWithContentsOfFile:jsPath encoding:NSUTF8StringEncoding error:nil];
+            JSContext *jsContext = [[JSContext alloc] init];
+            jsContext[@"OCObj"] = self;
+            [jsContext evaluateScript:jsString];
+            
+    //        [jsContext[@"init"] callWithArguments:@[^(JSValue *value) {
+    //            NSString *js = [NSString stringWithFormat:@"document.write('%@')", value.toString];
+    //            dispatch_async(dispatch_get_main_queue(), ^{
+    //                [self.context evaluateScript:js];
+    //            });
+    //        }]];
+        });
 }
 
 - (void)showHtml:(NSString *)str {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.context evaluateScript:[NSString stringWithFormat:@"document.write('%@')", str]];
+        [self.context evaluateScript:[NSString stringWithFormat:@"document.body.append('%@')", str]];
     });
 }
 

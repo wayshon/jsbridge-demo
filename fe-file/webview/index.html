@@ -2,7 +2,7 @@
 <html>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<title>my hybird</title>
+<title>webview hybird</title>
 
 <head>
     <style>
@@ -16,32 +16,43 @@
             document.body.style.color = Math.round(Math.random() * 2) ? color1 : color2;
             cb('来自js');
         }
-        function calc1() {
+
+        function callOCGetReturn() {
             // 调用 OC 方法，OCObj 是注入的全局变量
             const sum = OCObj.add(Math.random() * 10, 6);
             const el = document.createElement('h1');
-            el.innerText=`同步的结果: ${sum}`;
+            el.innerText = `同步的结果: ${sum}`;
             document.body.appendChild(el);
         }
-    
-        function calc2() {
-            OCObj.addByCallback(Math.random() * 10, 6, function(sum) {
+
+        function callOCWithBlock() {
+            OCObj.addByCallback(Math.random() * 10, 6, function (sum) {
                 const el = document.createElement('h1');
-                el.innerText=`回调的结果: ${sum}`;
+                el.innerText = `回调的结果: ${sum}`;
                 document.body.appendChild(el);
             });
         }
 
-        window.onload = function() {
-            OCObj.onLoad();
+        function openWKWebView() {
+            OCObj.openWKWebView();
+        }
+
+        function callThread() {
+            OCObj.callThread();
         }
     </script>
 </head>
 
 <body>
-    <h1 onclick="calc1()">调用 OC 方法并获得返回值</h1>
-    <h1 onclick="calc2()">调用 OC 方法并传回调</h1>
-    <h1 onclick="OCObj.openWKWebView()">openWKWebView</h1>
+    <section>
+        <button onclick="callOCGetReturn()">调用 OC 方法并获得返回值</button>
+        <button onclick="callOCWithBlock()">调用 OC 方法并传回调</button>
+    </section>
+    <section>
+        <button onclick="callThread()">call other thread</button>
+        <button onclick="openWKWebView()">openWKWebView</button>
+    </section>
+    
 </body>
 
 </html>

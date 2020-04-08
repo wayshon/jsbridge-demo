@@ -20,11 +20,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (IBAction)goWkWbview:(id)sender {
+    WKWebContainer *vc = [[WKWebContainer alloc] init];
+    NSString *str = [[NSBundle mainBundle] pathForResource:@"fe-file/wkweb/index.html" ofType:nil];
+    NSLog(@"%@", str);
+    vc.path = str;
+//    vc.path = @"https://calcbit.com";
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (IBAction)goUIWebView:(id)sender {
-    WKWebContainer *vc = [[WKWebContainer alloc] init];
-//    WebContainer *vc = [[WebContainer alloc] init];
-    vc.path = [[NSBundle mainBundle] pathForResource:@"index2.html" ofType:nil];
+    WebContainer *vc = [[WebContainer alloc] init];
+    NSString *str = [[NSBundle mainBundle] pathForResource:@"fe-file/webview/index.html" ofType:nil];
+    NSLog(@"%@", str);
+    vc.path = str;
 //    vc.path = @"https://calcbit.com";
     [self.navigationController pushViewController:vc animated:YES];
 }
