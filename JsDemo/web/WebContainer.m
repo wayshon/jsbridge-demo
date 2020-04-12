@@ -8,6 +8,7 @@
 
 #import "WebContainer.h"
 #import "WKWebContainer.h"
+#import <objc/runtime.h>
 
 @interface WebContainer ()<JSExportProtocol>
 @property (nonatomic, strong) UIWebView *webView;
@@ -15,6 +16,10 @@
 @end
 
 @implementation WebContainer
+
+void ReportFunction(id self, SEL _cmd) {
+    NSLog(@"name is ====  %@", [self valueForKey:@"name"]);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,6 +73,17 @@
         }])];
         [self presentViewController:alertController animated:YES completion:nil];
     }]];
+    
+    const char *className = "AutoClass";
+    Class cls = objc_getClass(className);
+    class_addMethod(cls, @selector(sayHaha), (IMP)ReportFunction, "v@:");
+    id instance = [[cls alloc] init];
+    [instance sayHaha];
+    
+}
+
+- (void)sayHaha {
+    NSLog(@"---------------");
 }
 
 - (NSInteger)add:(NSInteger)a with:(NSInteger)b {

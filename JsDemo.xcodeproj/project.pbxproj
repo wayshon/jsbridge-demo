@@ -19,7 +19,7 @@
 		2B72BE46242C81B600EDA2F8 /* JsDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE45242C81B600EDA2F8 /* JsDemoUITests.m */; };
 		2B72BE58242C858000EDA2F8 /* WebContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE57242C858000EDA2F8 /* WebContainer.m */; };
 		2B72BE63242CD5FB00EDA2F8 /* WKWebContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72BE62242CD5FB00EDA2F8 /* WKWebContainer.m */; };
-		2BF1B89B243F5F9C00D29C40 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1B89A243F5F9C00D29C40 /* TableViewController.m */; };
+		2BBA768A244344B2003B468C /* AutoClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBA7689244344B2003B468C /* AutoClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +64,8 @@
 		2B72BE5E242C8EDB00EDA2F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2B72BE61242CD5FB00EDA2F8 /* WKWebContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebContainer.h; sourceTree = "<group>"; };
 		2B72BE62242CD5FB00EDA2F8 /* WKWebContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebContainer.m; sourceTree = "<group>"; };
-		2BF1B899243F5F9C00D29C40 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		2BF1B89A243F5F9C00D29C40 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		2BBA7688244344B2003B468C /* AutoClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoClass.h; sourceTree = "<group>"; };
+		2BBA7689244344B2003B468C /* AutoClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 				2B72BE22242C81B500EDA2F8 /* SceneDelegate.m */,
 				2B72BE24242C81B500EDA2F8 /* ViewController.h */,
 				2B72BE25242C81B500EDA2F8 /* ViewController.m */,
-				2BF1B899243F5F9C00D29C40 /* TableViewController.h */,
-				2BF1B89A243F5F9C00D29C40 /* TableViewController.m */,
+				2BBA7688244344B2003B468C /* AutoClass.h */,
+				2BBA7689244344B2003B468C /* AutoClass.m */,
 				2B72BE59242C859000EDA2F8 /* web */,
 				2B72BE27242C81B500EDA2F8 /* Main.storyboard */,
 				2B72BE2A242C81B600EDA2F8 /* Assets.xcassets */,
@@ -322,7 +322,7 @@
 				2B72BE20242C81B500EDA2F8 /* AppDelegate.m in Sources */,
 				2B72BE31242C81B600EDA2F8 /* main.m in Sources */,
 				2B72BE63242CD5FB00EDA2F8 /* WKWebContainer.m in Sources */,
-				2BF1B89B243F5F9C00D29C40 /* TableViewController.m in Sources */,
+				2BBA768A244344B2003B468C /* AutoClass.m in Sources */,
 				2B72BE23242C81B500EDA2F8 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
