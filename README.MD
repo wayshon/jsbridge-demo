@@ -1,6 +1,6 @@
 # jsbridge-demo
 
-## hybrid
+## hybrid - webview 时代
 
 #### URL 拦截
 webview 能够执行js，监听url的跳转，加载，失败/成功，返回等 delegate。
@@ -359,7 +359,7 @@ WKWebview 可以通过evaluateJavaScript执行js，注意这里也与JSContext �
 
 ![](./images/demo.png)
 
-## React Native
+## React Native - 泛 webview 时代
 
 一次学习，随处运行。也就是说，React Native 是存在学习成本。
 
@@ -451,7 +451,7 @@ OC 端注册 CADisplayLink 回调，并将 CADisplayLink 添加到 runloop，CAD
 - 由`MIN_TIME_BETWEEN_FLUSHES_MS `可以发现，OC 与 js 通信存在开销，性能比不上纯原生。比如 ListView，rn 先是计算 Virtual Dom，再把计算结果推进 MessageQueue 队列，再等 oc 来取，再通过yoga布局，再在主线程进行渲染。而原生的 UITableView 滚动的时候是在主线程同步渲染列表，并且通过 dequeueReusableCellWithIdentifier 可以高效的复用 cell
 - 渲染白屏时间长，不像纯原生渲染的快，boundle.js 里大部分都是基础代码，真正的业务代码占少部分。携程的做法是拆开基础 bundle 与业务 bundle，事先准备好加载好基础bundle的RCTRootView，使用的时候只需要加载业务bundle，这也是因为它是原生集成 RN，而不是整个app都是RN。再加载 native 的时候就可以准备好 RCTRootView，并且业务bundle特别多，基础bundle一份就够了。
 
-## Flutter
+## Flutter - 自绘引擎时代
 我不会。。。
 
 
