@@ -229,6 +229,12 @@ WKWebview 可以通过evaluateJavaScript执行js，注意这里也与JSContext �
 以前写hybrid页面，对于一些图片和视频，要么把native层盖在webview上，要么就是在webview上打孔，微信小程序出了个同层渲染，将native控件挂载到WKWebview的子view里，从而可以使用样式(部分)控制native控件。具体缘由请参考微信的文档[小程序同层渲染原理剖析](https://developers.weixin.qq.com/community/develop/article/doc/000c4e433707c072c1793e56f5c813)，下面上代码
 
 ```jsvascript
+<!DOCTYPE HTML>
+<html>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<title>wk hybird</title>
+
 <head>
     <style>
         body {
@@ -314,10 +320,12 @@ WKWebview 可以通过evaluateJavaScript执行js，注意这里也与JSContext �
     <div class="wrapper">
         <div class="content"></div>
         <ui-image
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586279525051&di=82f790e3c72b1e0879790c1c0880fe8e&imgtype=0&src=http%3A%2F%2Fd.ifengimg.com%2Fw600%2Fp0.ifengimg.com%2Fpmop%2F2018%2F0210%2FECBF42F32865065AD4C254E04EA4FE29060B24DF_size33_w640_h590.jpeg">
+            src="https://calcbit.com/resource/doudou/doudou.jpeg">
         </ui-image>
     </div>
 </body>
+
+</html>
 ```
 
 ```objective-c
